@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random question</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  button#no {
+    position: absolute;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Would you like to go out with me?</h1>
+  <button class="button" onclick="displayMessage('yes')">Yes</button>
+  <button id="no" class="button" onclick="preventClick()">No</button>
+</div>
+<script src="script.js"></script>
+<script>
+  const noButton = document.getElementById('no');
+
+  function preventClick() {
+    alert("I'm sorry, the button keeps moving!");
+  }
+
+  noButton.addEventListener('mousemove', function() {
+    const x = Math.floor(Math.random() * window.innerWidth);
+    const y = Math.floor(Math.random() * window.innerHeight);
+    noButton.style.left = `${x}px`;
+    noButton.style.top = `${y}px`;
+  });
+</script>
+</body>
+</html>
+
